@@ -115,7 +115,7 @@ def spell_check():
             f.writelines(lines)
             f.close()
 
-            p = subprocess.run(['./a.out', './check_words.txt', './wordlist.txt'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            p = subprocess.run(['./app/a.out', './app/check_words.txt', './app/wordlist.txt'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             msg = p.stdout.decode('utf-8')
             msg = msg.replace('\n', ', ')
             msg = msg.rstrip(', ')
