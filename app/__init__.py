@@ -67,9 +67,9 @@ def register():
             new_user = User(username=form.uname.data, password=hashed_password, phone=form.phone.data)
             db.session.add(new_user)
             db.session.commit()
-            # outcome = 'success'
-            # return render_template('register.html', form=form, outcome=outcome)
-            return redirect(url_for('login'))
+            outcome = 'success'
+            return render_template('register.html', form=form, outcome=outcome)
+            #return redirect(url_for('login'))
         except exc.IntegrityError:
             db.session.rollback()
             outcome = 'failure: user exist'
